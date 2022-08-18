@@ -18,4 +18,24 @@ public class AddCommodity extends Command {
         this.commodityQuantity = commodityQuantity;
         this.commodityPrice = commodityPrice;
     }
+
+    public ProductionID getProductionID() {
+        return productionID;
+    }
+
+    public CommodityID getCommodityID() {
+        return commodityID;
+    }
+
+    public CommodityName getCommodityName() {
+        return commodityName;
+    }
+
+    public CommodityQuantity getCommodityQuantity() {
+        return commodityQuantity;
+    }
+
+    public CommodityPrice getCommodityPrice() {
+        return commodityPrice;
+    }
 }
