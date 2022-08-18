@@ -9,4 +9,8 @@ public class FactoryNameUpdated extends DomainEvent {
         super("DDD.FactoryNameUpdated");
         this.factoryName = factoryName;
     }
+
+    public FactoryName getFactoryName(){
+        return factoryName;
+    }
 }
