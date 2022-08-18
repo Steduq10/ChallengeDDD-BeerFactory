@@ -3,8 +3,9 @@ package Production.commands;
 import Production.values.CommodityID;
 import Production.values.CommodityName;
 import Production.values.ProductionID;
+import co.com.sofka.domain.generic.Command;
 
-public class ChangeCommodityName {
+public class ChangeCommodityName extends Command {
     private final ProductionID productionID;
     private final CommodityID commodityID;
     private final CommodityName commodityName;

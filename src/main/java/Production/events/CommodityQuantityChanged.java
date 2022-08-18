@@ -1,23 +1,17 @@
-package Production.commands;
+package Production.events;
 
 import Production.values.CommodityID;
 import Production.values.CommodityQuantity;
-import Production.values.ProductionID;
-import co.com.sofka.domain.generic.Command;
+import co.com.sofka.domain.generic.DomainEvent;
 
-public class ChangeCommodityQuantity extends Command {
-    private final ProductionID productionID;
+public class CommodityQuantityChanged extends DomainEvent {
     private final CommodityID commodityID;
     private final CommodityQuantity commodityQuantity;
 
-    public ChangeCommodityQuantity(ProductionID productionID, CommodityID commodityID, CommodityQuantity commodityQuantity) {
-        this.productionID = productionID;
+    public CommodityQuantityChanged( CommodityID commodityID, CommodityQuantity commodityQuantity) {
+        super("DDD.Productions.CommodityQuantityChanged");
         this.commodityID = commodityID;
         this.commodityQuantity = commodityQuantity;
-    }
-
-    public ProductionID getProductionID() {
-        return productionID;
     }
 
     public CommodityID getCommodityID() {

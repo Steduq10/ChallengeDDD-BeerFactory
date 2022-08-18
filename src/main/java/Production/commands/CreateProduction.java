@@ -2,8 +2,9 @@ package Production.commands;
 
 import Production.generics.FactoryName;
 import Production.values.ProductionID;
+import co.com.sofka.domain.generic.Command;
 
-public class CreateProduction {
+public class CreateProduction extends Command {
     private final ProductionID productionID;
     private final FactoryName factoryName;
 

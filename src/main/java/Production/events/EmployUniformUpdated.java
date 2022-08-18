@@ -1,23 +1,17 @@
-package Production.commands;
+package Production.events;
 
 import Production.values.ProductionEmployeID;
 import Production.values.ProductionEmployeUniform;
-import Production.values.ProductionID;
-import co.com.sofka.domain.generic.Command;
+import co.com.sofka.domain.generic.DomainEvent;
 
-public class UpdateEmployeUniform extends Command {
-    private final ProductionID productionID;
+public class EmployUniformUpdated extends DomainEvent {
     private final ProductionEmployeID productionEmployeID;
     private final ProductionEmployeUniform productionEmployeUniform;
 
-    public UpdateEmployeUniform(ProductionID productionID, ProductionEmployeID productionEmployeID, ProductionEmployeUniform productionEmployeUniform) {
-        this.productionID = productionID;
+    public EmployUniformUpdated(ProductionEmployeID productionEmployeID, ProductionEmployeUniform productionEmployeUniform) {
+        super("DDD.Productions.EmployUniformUpdated");
         this.productionEmployeID = productionEmployeID;
         this.productionEmployeUniform = productionEmployeUniform;
-    }
-
-    public ProductionID getProductionID() {
-        return productionID;
     }
 
     public ProductionEmployeID getProductionEmployeID() {
