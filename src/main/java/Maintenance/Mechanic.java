@@ -31,6 +31,7 @@ public class Mechanic extends Entity<MechanicID> {
     public void UpdateUniform(MechanicUniform mechanicUniform){
         this.mechanicUniform = Objects.requireNonNull(mechanicUniform);
     }
+
     public MechanicName mechanicName() {
         return mechanicName;
     }
