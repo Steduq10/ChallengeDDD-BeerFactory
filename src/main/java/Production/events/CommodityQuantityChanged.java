@@ -8,8 +8,8 @@ public class CommodityQuantityChanged extends DomainEvent {
     private final CommodityID commodityID;
     private final CommodityQuantity commodityQuantity;
 
-    public CommodityQuantityChanged( CommodityID commodityID, CommodityQuantity commodityQuantity) {
-        super("DDD.Productions.CommodityQuantityChanged");
+    public CommodityQuantityChanged(CommodityID commodityID, CommodityQuantity commodityQuantity) {
+        super("DDD.Production.CommodityQuantityChanged");
         this.commodityID = commodityID;
         this.commodityQuantity = commodityQuantity;
     }
