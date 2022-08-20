@@ -1,9 +1,6 @@
 package Production.events;
 
-import Production.values.ProductionEmployeDNI;
-import Production.values.ProductionEmployeID;
-import Production.values.ProductionEmployeName;
-import Production.values.ProductionEmployeUniform;
+import Production.values.*;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class ProductionEmployeAdded extends DomainEvent {
@@ -12,12 +9,15 @@ public class ProductionEmployeAdded extends DomainEvent {
     private final ProductionEmployeDNI productionEmployeDNI;
     private final ProductionEmployeUniform productionEmployeUniform;
 
-    public ProductionEmployeAdded( ProductionEmployeID productionEmployeID, ProductionEmployeName productionEmployeName, ProductionEmployeDNI productionEmployeDNI, ProductionEmployeUniform productionEmployeUniform) {
+    private final ProductionEmployeHoursWorked productionEmployeHoursWorked;
+
+    public ProductionEmployeAdded( ProductionEmployeID productionEmployeID, ProductionEmployeName productionEmployeName, ProductionEmployeDNI productionEmployeDNI, ProductionEmployeUniform productionEmployeUniform, ProductionEmployeHoursWorked productionEmployeHoursWorked) {
         super("DDD.Productions.ProductionEmployeAdded");
         this.productionEmployeID = productionEmployeID;
         this.productionEmployeName = productionEmployeName;
         this.productionEmployeDNI = productionEmployeDNI;
         this.productionEmployeUniform = productionEmployeUniform;
+        this.productionEmployeHoursWorked = productionEmployeHoursWorked;
     }
 
     public ProductionEmployeID getProductionEmployeID() {
@@ -34,5 +34,9 @@ public class ProductionEmployeAdded extends DomainEvent {
 
     public ProductionEmployeUniform getProductionEmployeUniform() {
         return productionEmployeUniform;
+    }
+
+    public ProductionEmployeHoursWorked getProductionEmployeHoursWorked() {
+        return productionEmployeHoursWorked;
     }
 }

@@ -39,7 +39,8 @@ class updateEmployeeUniformUseCaseTest {
                 new ProductionEmployeAdded(ProductionEmployeID.of("23er45"),
                         new ProductionEmployeName("Pablo"),
                         new ProductionEmployeDNI("4274569514"),
-                        new ProductionEmployeUniform("White uniform without security"))
+                        new ProductionEmployeUniform("White uniform without security"),
+                        new ProductionEmployeHoursWorked("8"))
         ));
 
         useCase.addRepository(repository);

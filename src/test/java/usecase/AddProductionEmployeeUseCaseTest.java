@@ -26,7 +26,7 @@ class AddProductionEmployeeUseCaseTest {
 
     @Test
     public void addProductionEmployeeUseCaseTest(){
-        var command = new AddProductionEmploye(ProductionID.of(ROOTID), ProductionEmployeID.of("23er45"), new ProductionEmployeName("Cristina Suarez"),new ProductionEmployeDNI("494569547"), new ProductionEmployeUniform("blue with security"));
+        var command = new AddProductionEmploye(ProductionID.of(ROOTID), ProductionEmployeID.of("23er45"), new ProductionEmployeName("Cristina Suarez"),new ProductionEmployeDNI("494569547"), new ProductionEmployeUniform("blue with security"), new ProductionEmployeHoursWorked("8"));
         var useCase = new AddProductionEmployeeUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(

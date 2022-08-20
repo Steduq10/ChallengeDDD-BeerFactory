@@ -1,19 +1,19 @@
 package Production.commands;
 
+import Production.values.ProductionEmployeHoursWorked;
 import Production.values.ProductionEmployeID;
-import Production.values.ProductionEmployeName;
 import Production.values.ProductionID;
 import co.com.sofka.domain.generic.Command;
 
-public class UpdateEmployeName extends Command {
+public class UpdateEmployeHoursWorked extends Command {
     private final ProductionID productionID;
     private final ProductionEmployeID productionEmployeID;
-    private final ProductionEmployeName productionEmployeName;
+    private final ProductionEmployeHoursWorked productionEmployeHoursWorked;
 
-    public UpdateEmployeName(ProductionID productionID, ProductionEmployeID productionEmployeID, ProductionEmployeName productionEmployeName) {
+    public UpdateEmployeHoursWorked(ProductionID productionID, ProductionEmployeID productionEmployeID, ProductionEmployeHoursWorked productionEmployeHoursWorked) {
         this.productionID = productionID;
         this.productionEmployeID = productionEmployeID;
-        this.productionEmployeName = productionEmployeName;
+        this.productionEmployeHoursWorked = productionEmployeHoursWorked;
     }
 
     public ProductionID getProductionID() {
@@ -24,7 +24,7 @@ public class UpdateEmployeName extends Command {
         return productionEmployeID;
     }
 
-    public ProductionEmployeName getProductionEmployeName() {
-        return productionEmployeName;
+    public ProductionEmployeHoursWorked getProductionEmployeHoursWorked() {
+        return productionEmployeHoursWorked;
     }
 }

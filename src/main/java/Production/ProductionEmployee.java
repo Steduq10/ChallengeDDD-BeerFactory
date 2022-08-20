@@ -1,9 +1,6 @@
 package Production;
 
-import Production.values.ProductionEmployeDNI;
-import Production.values.ProductionEmployeID;
-import Production.values.ProductionEmployeName;
-import Production.values.ProductionEmployeUniform;
+import Production.values.*;
 import co.com.sofka.domain.generic.Entity;
 
 import java.util.Objects;
@@ -13,20 +10,19 @@ public class ProductionEmployee extends Entity<ProductionEmployeID> {
     private  ProductionEmployeDNI productionEmployeDNI;
     private  ProductionEmployeUniform productionEmployeUniform;
 
+    private ProductionEmployeHoursWorked productionEmployeHoursWorked;
 
-    public ProductionEmployee(ProductionEmployeID entityId, ProductionEmployeName productionEmployeName, ProductionEmployeDNI productionEmployeDNI, ProductionEmployeUniform productionEmployeUniform) {
+
+    public ProductionEmployee(ProductionEmployeID entityId, ProductionEmployeName productionEmployeName, ProductionEmployeDNI productionEmployeDNI, ProductionEmployeUniform productionEmployeUniform, ProductionEmployeHoursWorked productionEmployeHoursWorked) {
         super(entityId);
         this.productionEmployeName = productionEmployeName;
         this.productionEmployeDNI = productionEmployeDNI;
         this.productionEmployeUniform = productionEmployeUniform;
+        this.productionEmployeHoursWorked = productionEmployeHoursWorked;
     }
 
-    public void UpdateName(ProductionEmployeName productionEmployeName){
-        this.productionEmployeName = Objects.requireNonNull(productionEmployeName);
-    }
-
-    public void UpdateDNI(ProductionEmployeDNI productionEmployeDNI){
-        this.productionEmployeDNI = Objects.requireNonNull(productionEmployeDNI);
+    public void UpdateHoursWorked(ProductionEmployeHoursWorked productionEmployeHoursWorked){
+        this.productionEmployeHoursWorked = Objects.requireNonNull(productionEmployeHoursWorked);
     }
 
     public void UpdateUniform(ProductionEmployeUniform productionEmployeUniform){
@@ -43,5 +39,9 @@ public class ProductionEmployee extends Entity<ProductionEmployeID> {
 
     public ProductionEmployeUniform productionEmployeUniform() {
         return productionEmployeUniform;
+    }
+
+    public ProductionEmployeHoursWorked productionEmployeHoursWorked() {
+        return productionEmployeHoursWorked;
     }
 }

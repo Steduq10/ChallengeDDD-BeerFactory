@@ -46,18 +46,12 @@ public class Production extends AggregateEvent<ProductionID> {
         appendChange(new CommodityAdded(entityID, commodityName, commodityQuantity, commodityPrice)).apply();
     }
 
-    public void addProductionEmployee(ProductionEmployeID entityID, ProductionEmployeName productionEmployeName, ProductionEmployeDNI productionEmployeDNI, ProductionEmployeUniform productionEmployeUniform){
+    public void addProductionEmployee(ProductionEmployeID entityID, ProductionEmployeName productionEmployeName, ProductionEmployeDNI productionEmployeDNI, ProductionEmployeUniform productionEmployeUniform, ProductionEmployeHoursWorked productionEmployeHoursWorked){
         Objects.requireNonNull(entityID);
         Objects.requireNonNull(productionEmployeName);
         Objects.requireNonNull(productionEmployeDNI);
         Objects.requireNonNull(productionEmployeUniform);
-        appendChange(new ProductionEmployeAdded(entityID, productionEmployeName, productionEmployeDNI, productionEmployeUniform)).apply();
-    }
-
-    public void changeCommodityName(CommodityID commodityID, CommodityName commodityName){
-        Objects.requireNonNull(commodityID);
-        Objects.requireNonNull(commodityName);
-        appendChange(new CommodityNameChanged(commodityID, commodityName)).apply();
+        appendChange(new ProductionEmployeAdded(entityID, productionEmployeName, productionEmployeDNI, productionEmployeUniform, productionEmployeHoursWorked)).apply();
     }
 
     public void changeCommodityPrice(CommodityID commodityID, CommodityPrice commodityPrice){
@@ -72,17 +66,12 @@ public class Production extends AggregateEvent<ProductionID> {
         appendChange(new CommodityQuantityChanged(commodityID, commodityQuantity)).apply();
     }
 
-    public void updateEmployeeName(ProductionEmployeID productionEmployeID, ProductionEmployeName productionEmployeName){
+    public void updateEmployeeHoursWorked(ProductionEmployeID productionEmployeID, ProductionEmployeHoursWorked productionEmployeHoursWorked){
         Objects.requireNonNull(productionEmployeID);
-        Objects.requireNonNull(productionEmployeName);
-        appendChange(new EmployeNameUpdated(productionEmployeID, productionEmployeName)).apply();
+        Objects.requireNonNull(productionEmployeHoursWorked);
+        appendChange(new EmployeHoursWorkedUpdated(productionEmployeID, productionEmployeHoursWorked)).apply();
     }
 
-    public void updateEmployeeDNI(ProductionEmployeID productionEmployeID, ProductionEmployeDNI productionEmployeDNI){
-        Objects.requireNonNull(productionEmployeID);
-        Objects.requireNonNull(productionEmployeDNI);
-        appendChange(new EmployeDNIUpdated(productionEmployeID, productionEmployeDNI)).apply();
-    }
 
     public void updateEmployeeUniform(ProductionEmployeID productionEmployeID, ProductionEmployeUniform productionEmployeUniform){
         Objects.requireNonNull(productionEmployeID);

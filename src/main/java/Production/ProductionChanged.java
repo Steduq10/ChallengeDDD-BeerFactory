@@ -27,10 +27,6 @@ public class ProductionChanged extends EventChange {
             production.factoryName = event.getFactoryName();
         });
 
-        apply((CommodityNameChanged event)->{
-           var commodity = production.getCommodityById(event.getCommodityID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the commodity"));
-           commodity.ChangeName(event.getCommodityName());
-        });
 
         apply((CommodityPriceChanged event)->{
             var commodity = production.getCommodityById(event.getCommodityID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the commodity"));
@@ -51,18 +47,17 @@ public class ProductionChanged extends EventChange {
                     event.getProductionEmployeID(),
                     event.getProductionEmployeName(),
                     event.getProductionEmployeDNI(),
-                    event.getProductionEmployeUniform()
+                    event.getProductionEmployeUniform(),
+                    event.getProductionEmployeHoursWorked()
+
             ));
         });
 
-        apply((EmployeDNIUpdated event)->{
-            var employee = production.getProductionEmployeeById(event.getProductionEmployeID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the employee"));
-            employee.UpdateDNI(event.getProductionEmployeDNI());
-        });
 
-        apply((EmployeNameUpdated event)->{
+
+        apply((EmployeHoursWorkedUpdated event)->{
             var employee = production.getProductionEmployeeById(event.getProductionEmployeID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the employee"));
-            employee.UpdateName(event.getProductionEmployeName());
+            employee.UpdateHoursWorked(event.getProductionEmployeHoursWorked());
         });
 
         apply((EmployUniformUpdated event)->{

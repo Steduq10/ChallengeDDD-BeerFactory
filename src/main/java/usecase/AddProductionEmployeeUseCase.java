@@ -15,7 +15,8 @@ public class AddProductionEmployeeUseCase extends UseCase<RequestCommand<AddProd
                 command.getProductionEmployeID(),
                 command.getProductionEmployeName(),
                 command.getProductionEmployeDNI(),
-                command.getProductionEmployeUniform()
+                command.getProductionEmployeUniform(),
+                command.getProductionEmployeHoursWorked()
         );
         emit().onResponse(new ResponseEvents(production.getUncommittedChanges()));
     }

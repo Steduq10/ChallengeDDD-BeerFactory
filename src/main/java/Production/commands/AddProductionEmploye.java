@@ -10,12 +10,15 @@ public class AddProductionEmploye extends Command {
     private final ProductionEmployeDNI productionEmployeDNI;
     private final ProductionEmployeUniform productionEmployeUniform;
 
-    public AddProductionEmploye(ProductionID productionID, ProductionEmployeID productionEmployeID, ProductionEmployeName productionEmployeName, ProductionEmployeDNI productionEmployeDNI, ProductionEmployeUniform productionEmployeUniform) {
+    private final ProductionEmployeHoursWorked productionEmployeHoursWorked;
+
+    public AddProductionEmploye(ProductionID productionID, ProductionEmployeID productionEmployeID, ProductionEmployeName productionEmployeName, ProductionEmployeDNI productionEmployeDNI, ProductionEmployeUniform productionEmployeUniform, ProductionEmployeHoursWorked productionEmployeHoursWorked) {
         this.productionID = productionID;
         this.productionEmployeID = productionEmployeID;
         this.productionEmployeName = productionEmployeName;
         this.productionEmployeDNI = productionEmployeDNI;
         this.productionEmployeUniform = productionEmployeUniform;
+        this.productionEmployeHoursWorked = productionEmployeHoursWorked;
     }
 
     public ProductionID getProductionID() {
@@ -36,5 +39,9 @@ public class AddProductionEmploye extends Command {
 
     public ProductionEmployeUniform getProductionEmployeUniform() {
         return productionEmployeUniform;
+    }
+
+    public ProductionEmployeHoursWorked getProductionEmployeHoursWorked() {
+        return productionEmployeHoursWorked;
     }
 }
