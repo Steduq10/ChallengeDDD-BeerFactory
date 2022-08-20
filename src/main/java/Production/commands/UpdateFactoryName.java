@@ -1,6 +1,6 @@
 package Production.commands;
 
-import generics.FactoryName;
+import Production.generics.FactoryName;
 import Production.values.ProductionID;
 import co.com.sofka.domain.generic.Command;
 

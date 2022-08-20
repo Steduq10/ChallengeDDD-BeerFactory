@@ -1,14 +1,14 @@
 package usecase;
 
-import Packaging.commands.AddBeer;
-import Packaging.events.BeerAdded;
+import Packaging.commands.AddPacker;
 import Packaging.events.PackagingCreated;
+import Packaging.events.PackerAdded;
 import Packaging.values.*;
-import Production.generics.FactoryName;
 import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
+import Production.generics.FactoryName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-class addBeerUseCaseTest {
+class addPackerUseCaseTest {
 
     private final String ROOTID = "145tr67";
 
@@ -27,10 +27,9 @@ class addBeerUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    public void addBeerUseCaseTest(){
-        //AddBeer command = new AddBeer(new PackagingID(), new BeerID(), new BeerName("Club Colombia Dorada"), new BeerQuantity("1500"),new BeerSize("300 ml"));
-        var command = new AddBeer(PackagingID.of(ROOTID), BeerID.of("23er45"), new BeerName("Club Colombia Dorada"),new BeerQuantity("1500"), new BeerSize("300 ml"));
-        var useCase = new addBeerUseCase();
+    public void addPackerUseCaseTest(){
+        var command = new AddPacker(PackagingID.of(ROOTID), PackerID.of("23er45"), new PackerName("Paula Rodriguez"),new PackerDNI("497426985"), new PackerUniform("yellow with security"));
+        var useCase = new addPackerUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(
                 new PackagingCreated(
@@ -43,15 +42,14 @@ class addBeerUseCaseTest {
         var events = UseCaseHandler
                 .getInstance()
                 .syncExecutor(useCase, new RequestCommand<>(command))
-                .orElseThrow(()-> new IllegalArgumentException("Something went wrong adding Beers"))
+                .orElseThrow(()-> new IllegalArgumentException("Something went wrong adding packers"))
                 .getDomainEvents();
 
-        BeerAdded event = (BeerAdded) events.get(0);
+        PackerAdded event = (PackerAdded) events.get(0);
 
-        Assertions.assertEquals(command.getBeerName().value(), event.getBeerName().value());
-        Assertions.assertEquals(command.getBeerQuantity().value(), event.getBeerQuantity().value());
-        Assertions.assertEquals(command.getBeerSize().value(), event.getBeerSize().value());
+        Assertions.assertEquals(command.getPackerName().value(), event.getPackerName().value());
+        Assertions.assertEquals(command.getPackerDNI().value(), event.getPackerDNI().value());
+        Assertions.assertEquals(command.getPackerUniform().value(), event.getPackerUniform().value());
         Mockito.verify(repository).getEventsBy(ROOTID);
     }
-
 }

@@ -3,7 +3,7 @@ package usecase;
 import Maintenance.commands.CreateMaintenance;
 import Maintenance.events.MaintenanceCreated;
 import Maintenance.values.MaintenainceID;
-import generics.FactoryName;
+import Production.generics.FactoryName;
 import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;

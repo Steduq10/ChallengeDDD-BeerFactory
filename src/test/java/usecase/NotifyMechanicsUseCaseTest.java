@@ -1,13 +1,12 @@
 package usecase;
 
 import Maintenance.events.MaintenanceCreated;
-import Packaging.events.PackagingCreated;
 import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.TriggeredEvent;
-import generics.FactoryName;
-import generics.event.NotificationSent;
+import Production.generics.FactoryName;
+import Production.generics.event.NotificationSent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,7 +16,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class NotifyMechanicsUseCaseTest {
     private final String ROOTID = "145tr67";

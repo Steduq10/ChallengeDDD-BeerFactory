@@ -1,7 +1,7 @@
 package Maintenance.commands;
 
 import Maintenance.values.MaintenainceID;
-import generics.FactoryName;
+import Production.generics.FactoryName;
 import Production.values.ProductionID;
 import co.com.sofka.domain.generic.Command;
 

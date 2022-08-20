@@ -4,7 +4,7 @@ import Production.commands.UpdateEmployeUniform;
 import Production.events.EmployUniformUpdated;
 import Production.events.ProductionCreated;
 import Production.events.ProductionEmployeAdded;
-import generics.FactoryName;
+import Production.generics.FactoryName;
 import Production.values.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;

@@ -1,4 +1,4 @@
-package generics.event;
+package Production.generics.event;
 
 import co.com.sofka.domain.generic.DomainEvent;
 

@@ -1,14 +1,14 @@
 package usecase;
 
-import Packaging.commands.AddBeer;
-import Packaging.events.BeerAdded;
-import Packaging.events.PackagingCreated;
-import Packaging.values.*;
-import Production.generics.FactoryName;
+import Maintenance.commands.AddMechanic;
+import Maintenance.events.MaintenanceCreated;
+import Maintenance.events.MechanicAdded;
+import Maintenance.values.*;
 import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
+import Production.generics.FactoryName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-class addBeerUseCaseTest {
+class AddMechanicUseCaseTest {
 
     private final String ROOTID = "145tr67";
 
@@ -27,13 +27,12 @@ class addBeerUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    public void addBeerUseCaseTest(){
-        //AddBeer command = new AddBeer(new PackagingID(), new BeerID(), new BeerName("Club Colombia Dorada"), new BeerQuantity("1500"),new BeerSize("300 ml"));
-        var command = new AddBeer(PackagingID.of(ROOTID), BeerID.of("23er45"), new BeerName("Club Colombia Dorada"),new BeerQuantity("1500"), new BeerSize("300 ml"));
-        var useCase = new addBeerUseCase();
+    public void addMechanicUseCaseTest(){
+        var command = new AddMechanic(MaintenainceID.of(ROOTID), MechanicID.of("23er45"), new MechanicName("Nelson Jimenez"),new MechanicDNI("71325674"), new MechanicUniform("white with security"));
+        var useCase = new AddMechanicUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(
-                new PackagingCreated(
+                new MaintenanceCreated(
                         new FactoryName("Bavaria"),
                         new ProductionID()
                 )
@@ -43,15 +42,14 @@ class addBeerUseCaseTest {
         var events = UseCaseHandler
                 .getInstance()
                 .syncExecutor(useCase, new RequestCommand<>(command))
-                .orElseThrow(()-> new IllegalArgumentException("Something went wrong adding Beers"))
+                .orElseThrow(()-> new IllegalArgumentException("Something went wrong adding mechanics"))
                 .getDomainEvents();
 
-        BeerAdded event = (BeerAdded) events.get(0);
+        MechanicAdded event = (MechanicAdded) events.get(0);
 
-        Assertions.assertEquals(command.getBeerName().value(), event.getBeerName().value());
-        Assertions.assertEquals(command.getBeerQuantity().value(), event.getBeerQuantity().value());
-        Assertions.assertEquals(command.getBeerSize().value(), event.getBeerSize().value());
+        Assertions.assertEquals(command.getMechanicName().value(), event.getMechanicName().value());
+        Assertions.assertEquals(command.getMechanicDNI().value(), event.getMechanicDNI().value());
+        Assertions.assertEquals(command.getMechanicUniform().value(), event.getMechanicUniform().value());
         Mockito.verify(repository).getEventsBy(ROOTID);
     }
-
 }

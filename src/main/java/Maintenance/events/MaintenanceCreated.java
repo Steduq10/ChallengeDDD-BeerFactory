@@ -1,6 +1,6 @@
 package Maintenance.events;
 
-import generics.FactoryName;
+import Production.generics.FactoryName;
 import Production.values.ProductionID;
 import co.com.sofka.domain.generic.DomainEvent;
 

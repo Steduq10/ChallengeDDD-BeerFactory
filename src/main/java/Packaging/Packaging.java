@@ -3,12 +3,12 @@ package Packaging;
 
 import Packaging.events.*;
 import Packaging.values.*;
-import generics.FactoryName;
-import generics.event.FactoryNameUpdated;
+import Production.generics.FactoryName;
+import Production.generics.event.FactoryNameUpdated;
 import Production.values.ProductionID;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import generics.event.NotificationSent;
+import Production.generics.event.NotificationSent;
 
 import java.util.List;
 import java.util.Objects;

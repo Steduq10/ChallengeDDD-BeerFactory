@@ -1,6 +1,6 @@
 package Production.events;
 
-import generics.FactoryName;
+import Production.generics.FactoryName;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class ProductionCreated extends DomainEvent {
