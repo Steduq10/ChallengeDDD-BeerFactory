@@ -1,13 +1,10 @@
 package usecase;
 
-import Maintenance.commands.CreateMaintenance;
-import Maintenance.events.MaintenanceCreated;
-import Maintenance.values.MaintenainceID;
 import Packaging.commands.AddBeer;
 import Packaging.events.BeerAdded;
 import Packaging.events.PackagingCreated;
 import Packaging.values.*;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -21,7 +18,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class addBeerUseCaseTest {
 

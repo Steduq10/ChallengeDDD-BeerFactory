@@ -1,10 +1,7 @@
 package Packaging;
 
-import Maintenance.Maintenance;
-import Maintenance.events.*;
 import Packaging.events.*;
-import Packaging.values.BeerSize;
-import Production.generics.FactoryNameUpdated;
+import generics.event.FactoryNameUpdated;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;

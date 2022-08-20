@@ -2,17 +2,14 @@ package usecase;
 
 import Production.commands.CreateProduction;
 import Production.events.ProductionCreated;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.generic.DomainEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class CreateProductionUseCaseTest {

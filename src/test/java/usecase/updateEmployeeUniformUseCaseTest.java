@@ -4,7 +4,7 @@ import Production.commands.UpdateEmployeUniform;
 import Production.events.EmployUniformUpdated;
 import Production.events.ProductionCreated;
 import Production.events.ProductionEmployeAdded;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 import Production.values.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -19,7 +19,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class updateEmployeeUniformUseCaseTest {
 

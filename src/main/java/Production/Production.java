@@ -1,8 +1,8 @@
 package Production;
 
 import Production.events.*;
-import Production.generics.FactoryName;
-import Production.generics.FactoryNameUpdated;
+import generics.FactoryName;
+import generics.event.FactoryNameUpdated;
 import Production.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;

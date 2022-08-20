@@ -1,17 +1,14 @@
 package Packaging;
 
 
-import Maintenance.Mechanic;
-import Maintenance.Tool;
-import Maintenance.values.MechanicID;
-import Maintenance.values.ToolID;
 import Packaging.events.*;
 import Packaging.values.*;
-import Production.generics.FactoryName;
-import Production.generics.FactoryNameUpdated;
+import generics.FactoryName;
+import generics.event.FactoryNameUpdated;
 import Production.values.ProductionID;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import generics.event.NotificationSent;
 
 import java.util.List;
 import java.util.Objects;
@@ -41,6 +38,10 @@ public class Packaging extends AggregateEvent<PackagingID> {
         return packaging;
     }
 
+    public void notifyPackers(String message){
+        Objects.requireNonNull(message);
+        appendChange(new NotificationSent(message)).apply();
+    }
     public void updateFactoryName(FactoryName factoryName){
         Objects.requireNonNull(factoryName);
         appendChange(new FactoryNameUpdated(factoryName)).apply();

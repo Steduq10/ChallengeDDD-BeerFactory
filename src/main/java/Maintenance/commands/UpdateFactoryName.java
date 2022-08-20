@@ -1,8 +1,7 @@
 package Maintenance.commands;
 
 import Maintenance.values.MaintenainceID;
-import Production.generics.FactoryName;
-import Production.values.ProductionID;
+import generics.FactoryName;
 import co.com.sofka.domain.generic.Command;
 
 public class UpdateFactoryName extends Command {

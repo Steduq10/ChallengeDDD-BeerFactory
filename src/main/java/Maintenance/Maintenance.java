@@ -2,11 +2,12 @@ package Maintenance;
 
 import Maintenance.events.*;
 import Maintenance.values.*;
-import Production.generics.FactoryName;
-import Production.generics.FactoryNameUpdated;
+import generics.FactoryName;
+import generics.event.FactoryNameUpdated;
 import Production.values.ProductionID;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import generics.event.NotificationSent;
 
 import java.util.List;
 import java.util.Objects;
@@ -33,6 +34,11 @@ public class Maintenance extends AggregateEvent<MaintenainceID> {
         var maintenance = new Maintenance(maintenainceID);
         events.forEach(maintenance::applyEvent);
         return maintenance;
+    }
+
+    public void notifyMechanics(String message){
+        Objects.requireNonNull(message);
+        appendChange(new NotificationSent(message)).apply();
     }
 
     public void updateFactoryName(FactoryName factoryName){
