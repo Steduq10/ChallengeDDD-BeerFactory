@@ -9,6 +9,7 @@ import Packaging.events.*;
 import Packaging.values.*;
 import Production.generics.FactoryName;
 import Production.generics.FactoryNameUpdated;
+import Production.values.ProductionID;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
@@ -20,12 +21,14 @@ import java.util.Set;
 public class Packaging extends AggregateEvent<PackagingID> {
 
     protected FactoryName factoryName;
+
+    protected ProductionID productionID;
     protected Set<Beer> beers;
     protected Set<Packer> packers;
 
-    public Packaging(PackagingID entityId, FactoryName factoryName) {
+    public Packaging(PackagingID entityId, FactoryName factoryName, ProductionID productionID) {
         super(entityId);
-        appendChange(new PackagingCreated(factoryName)).apply();
+        appendChange(new PackagingCreated(factoryName, productionID)).apply();
     }
 
     public Packaging(PackagingID packagingID){

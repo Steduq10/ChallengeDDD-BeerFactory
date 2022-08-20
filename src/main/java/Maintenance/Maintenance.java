@@ -4,6 +4,7 @@ import Maintenance.events.*;
 import Maintenance.values.*;
 import Production.generics.FactoryName;
 import Production.generics.FactoryNameUpdated;
+import Production.values.ProductionID;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
@@ -14,12 +15,14 @@ import java.util.Set;
 
 public class Maintenance extends AggregateEvent<MaintenainceID> {
     protected FactoryName factoryName;
+
+    protected ProductionID productionID;
     protected Set<Tool> tools;
     protected Set<Mechanic> mechanics;
 
-    public Maintenance(MaintenainceID entityId, FactoryName factoryName) {
+    public Maintenance(MaintenainceID entityId, FactoryName factoryName, ProductionID productionID) {
         super(entityId);
-        appendChange(new MaintenanceCreated(factoryName)).apply();
+        appendChange(new MaintenanceCreated(factoryName, productionID)).apply();
     }
 
     public Maintenance(MaintenainceID maintenainceID){
