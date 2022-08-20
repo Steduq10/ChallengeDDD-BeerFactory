@@ -1,9 +1,6 @@
 package Maintenance;
 
-import Maintenance.values.MechanicDNI;
-import Maintenance.values.MechanicID;
-import Maintenance.values.MechanicName;
-import Maintenance.values.MechanicUniform;
+import Maintenance.values.*;
 import co.com.sofka.domain.generic.Entity;
 
 import java.util.Objects;
@@ -13,19 +10,19 @@ public class Mechanic extends Entity<MechanicID> {
     private MechanicDNI mechanicDNI;
     private MechanicUniform mechanicUniform;
 
-    public Mechanic(MechanicID entityId, MechanicName mechanicName, MechanicDNI mechanicDNI, MechanicUniform mechanicUniform) {
+    private MechanicHoursWorked mechanicHoursWorked;
+
+    public Mechanic(MechanicID entityId, MechanicName mechanicName, MechanicDNI mechanicDNI, MechanicUniform mechanicUniform, MechanicHoursWorked mechanicHoursWorked) {
         super(entityId);
         this.mechanicName = mechanicName;
         this.mechanicDNI = mechanicDNI;
         this.mechanicUniform = mechanicUniform;
+        this.mechanicHoursWorked = mechanicHoursWorked;
     }
 
-    public void UpdateName(MechanicName mechanicName){
-        this.mechanicName = Objects.requireNonNull(mechanicName);
-    }
 
-    public void UpdateDNI(MechanicDNI mechanicDNI){
-        this.mechanicDNI = Objects.requireNonNull(mechanicDNI);
+    public void UpdateHoursWorked(MechanicHoursWorked mechanicHoursWorked){
+        this.mechanicHoursWorked = Objects.requireNonNull(mechanicHoursWorked);
     }
 
     public void UpdateUniform(MechanicUniform mechanicUniform){
@@ -42,5 +39,9 @@ public class Mechanic extends Entity<MechanicID> {
 
     public MechanicUniform mechanicUniform() {
         return mechanicUniform;
+    }
+
+    public MechanicHoursWorked mechanicHoursWorked() {
+        return mechanicHoursWorked;
     }
 }

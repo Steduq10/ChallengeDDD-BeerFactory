@@ -3,15 +3,15 @@ package Maintenance.commands;
 import Maintenance.values.*;
 import co.com.sofka.domain.generic.Command;
 
-public class UpdateMechanicName extends Command {
+public class UpdateMechanicHoursWorked extends Command {
     private final MaintenainceID maintenainceID;
     private final MechanicID mechanicID;
-    private final MechanicName mechanicName;
+    private final MechanicHoursWorked mechanicHoursWorked;
 
-    public UpdateMechanicName(MaintenainceID maintenainceID, MechanicID mechanicID, MechanicName mechanicName) {
+    public UpdateMechanicHoursWorked(MaintenainceID maintenainceID, MechanicID mechanicID, MechanicHoursWorked mechanicHoursWorked) {
         this.maintenainceID = maintenainceID;
         this.mechanicID = mechanicID;
-        this.mechanicName = mechanicName;
+        this.mechanicHoursWorked = mechanicHoursWorked;
     }
 
     public MaintenainceID getMaintenainceID() {
@@ -22,7 +22,7 @@ public class UpdateMechanicName extends Command {
         return mechanicID;
     }
 
-    public MechanicName getMechanicName() {
-        return mechanicName;
+    public MechanicHoursWorked getMechanicHoursWorked() {
+        return mechanicHoursWorked;
     }
 }

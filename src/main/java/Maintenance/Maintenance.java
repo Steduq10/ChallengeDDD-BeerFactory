@@ -46,12 +46,13 @@ public class Maintenance extends AggregateEvent<MaintenainceID> {
         appendChange(new FactoryNameUpdated(factoryName)).apply();
     }
 
-    public void addMechanic(MechanicID entityID, MechanicName mechanicName, MechanicDNI mechanicDNI, MechanicUniform mechanicUniform){
+    public void addMechanic(MechanicID entityID, MechanicName mechanicName, MechanicDNI mechanicDNI, MechanicUniform mechanicUniform, MechanicHoursWorked mechanicHoursWorked){
         Objects.requireNonNull(entityID);
         Objects.requireNonNull(mechanicName);
         Objects.requireNonNull(mechanicDNI);
         Objects.requireNonNull(mechanicUniform);
-        appendChange(new MechanicAdded(entityID,mechanicName,mechanicDNI,mechanicUniform));
+        Objects.requireNonNull(mechanicHoursWorked);
+        appendChange(new MechanicAdded(entityID,mechanicName,mechanicDNI,mechanicUniform, mechanicHoursWorked));
     }
 
     public void addTool(ToolID entityID, ToolName toolName, ToolQuantity toolQuantity, ToolBrand toolBrand){
@@ -62,16 +63,12 @@ public class Maintenance extends AggregateEvent<MaintenainceID> {
         appendChange(new ToolAdded(entityID,toolName,toolQuantity,toolBrand));
     }
 
-    public void updateMechanicName(MechanicID entityID, MechanicName mechanicName){
-        Objects.requireNonNull(entityID);
-        Objects.requireNonNull(mechanicName);
-        appendChange(new MechanicNameUpdated(entityID,mechanicName));
-    }
 
-    public void updateMechanicDNI(MechanicID entityID, MechanicDNI mechanicDNI){
+
+    public void updateMechanicHoursWorked(MechanicID entityID, MechanicHoursWorked mechanicHoursWorked){
         Objects.requireNonNull(entityID);
-        Objects.requireNonNull(mechanicDNI);;
-        appendChange(new MechanicDNIUpdated(entityID,mechanicDNI));
+        Objects.requireNonNull(mechanicHoursWorked);;
+        appendChange(new MechanicHoursWorkedUpdated(entityID,mechanicHoursWorked));
     }
 
     public void updateMechanicUniform(MechanicID entityID, MechanicUniform mechanicUniform){
@@ -80,11 +77,7 @@ public class Maintenance extends AggregateEvent<MaintenainceID> {
         appendChange(new MechanicUniformUpdated(entityID,mechanicUniform));
     }
 
-    public void changeToolName(ToolID entityID, ToolName toolName){
-        Objects.requireNonNull(entityID);
-        Objects.requireNonNull(toolName);
-        appendChange(new ToolNameChanged(entityID,toolName));
-    }
+
 
     public void changeToolQuantity(ToolID entityID, ToolQuantity toolQuantity){
         Objects.requireNonNull(entityID);

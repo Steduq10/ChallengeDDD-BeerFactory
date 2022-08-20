@@ -28,7 +28,7 @@ class AddMechanicUseCaseTest {
 
     @Test
     public void addMechanicUseCaseTest(){
-        var command = new AddMechanic(MaintenainceID.of(ROOTID), MechanicID.of("23er45"), new MechanicName("Nelson Jimenez"),new MechanicDNI("71325674"), new MechanicUniform("white with security"));
+        var command = new AddMechanic(MaintenainceID.of(ROOTID), MechanicID.of("23er45"), new MechanicName("Nelson Jimenez"),new MechanicDNI("71325674"), new MechanicUniform("white with security"), new MechanicHoursWorked("10"));
         var useCase = new AddMechanicUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(
@@ -50,6 +50,7 @@ class AddMechanicUseCaseTest {
         Assertions.assertEquals(command.getMechanicName().value(), event.getMechanicName().value());
         Assertions.assertEquals(command.getMechanicDNI().value(), event.getMechanicDNI().value());
         Assertions.assertEquals(command.getMechanicUniform().value(), event.getMechanicUniform().value());
+        Assertions.assertEquals(command.getMechanicHoursWorked().value(), event.getMechanicHoursWorked().value());
         Mockito.verify(repository).getEventsBy(ROOTID);
     }
 }

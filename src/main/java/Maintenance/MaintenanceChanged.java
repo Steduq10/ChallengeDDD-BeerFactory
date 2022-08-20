@@ -53,19 +53,17 @@ public class MaintenanceChanged extends EventChange {
                     event.getMechanicID(),
                     event.getMechanicName(),
                     event.getMechanicDNI(),
-                    event.getMechanicUniform()
+                    event.getMechanicUniform(),
+                    event.getMechanicHoursWorked()
             ));
         });
 
-        apply((MechanicDNIUpdated event)->{
+        apply((MechanicHoursWorkedUpdated event)->{
             var mechanic = maintenance.getProductionEmployeeById(event.getMechanicID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the mechanic"));
-            mechanic.UpdateDNI(event.getMechanicDNI());
+            mechanic.UpdateHoursWorked(event.getMechanicHoursWorked());
         });
 
-        apply((MechanicNameUpdated event)->{
-            var mechanic = maintenance.getProductionEmployeeById(event.getMechanicID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the mechanic"));
-            mechanic.UpdateName(event.getMechanicName());
-        });
+
 
         apply((MechanicUniformUpdated event)->{
             var mechanic = maintenance.getProductionEmployeeById(event.getMechanicID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the mechanic"));

@@ -15,7 +15,8 @@ public class AddMechanicUseCase extends UseCase<RequestCommand<AddMechanic>, Res
                 command.getMechanicID(),
                 command.getMechanicName(),
                 command.getMechanicDNI(),
-                command.getMechanicUniform()
+                command.getMechanicUniform(),
+                command.getMechanicHoursWorked()
         );
 
         emit().onResponse(new ResponseEvents(maintenance.getUncommittedChanges()));

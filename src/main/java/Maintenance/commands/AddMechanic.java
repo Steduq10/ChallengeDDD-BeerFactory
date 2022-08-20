@@ -10,12 +10,15 @@ public class AddMechanic extends Command {
     private final MechanicDNI mechanicDNI;
     private final MechanicUniform mechanicUniform;
 
-    public AddMechanic(MaintenainceID maintenainceID, MechanicID mechanicID, MechanicName mechanicName, MechanicDNI mechanicDNI, MechanicUniform mechanicUniform) {
+    private final MechanicHoursWorked mechanicHoursWorked;
+
+    public AddMechanic(MaintenainceID maintenainceID, MechanicID mechanicID, MechanicName mechanicName, MechanicDNI mechanicDNI, MechanicUniform mechanicUniform, MechanicHoursWorked mechanicHoursWorked) {
         this.maintenainceID = maintenainceID;
         this.mechanicID = mechanicID;
         this.mechanicName = mechanicName;
         this.mechanicDNI = mechanicDNI;
         this.mechanicUniform = mechanicUniform;
+        this.mechanicHoursWorked = mechanicHoursWorked;
     }
 
     public MaintenainceID getMaintenainceID() {
@@ -36,5 +39,9 @@ public class AddMechanic extends Command {
 
     public MechanicUniform getMechanicUniform() {
         return mechanicUniform;
+    }
+
+    public MechanicHoursWorked getMechanicHoursWorked() {
+        return mechanicHoursWorked;
     }
 }

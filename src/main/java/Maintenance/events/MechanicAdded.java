@@ -1,9 +1,6 @@
 package Maintenance.events;
 
-import Maintenance.values.MechanicDNI;
-import Maintenance.values.MechanicID;
-import Maintenance.values.MechanicName;
-import Maintenance.values.MechanicUniform;
+import Maintenance.values.*;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class MechanicAdded extends DomainEvent {
@@ -12,12 +9,15 @@ public class MechanicAdded extends DomainEvent {
     private final MechanicDNI mechanicDNI;
     private final MechanicUniform mechanicUniform;
 
-    public MechanicAdded( MechanicID mechanicID, MechanicName mechanicName, MechanicDNI mechanicDNI, MechanicUniform mechanicUniform) {
+    private final MechanicHoursWorked mechanicHoursWorked;
+
+    public MechanicAdded( MechanicID mechanicID, MechanicName mechanicName, MechanicDNI mechanicDNI, MechanicUniform mechanicUniform, MechanicHoursWorked mechanicHoursWorked) {
         super("DDD.Maintenances.MechanicAdded");
         this.mechanicID = mechanicID;
         this.mechanicName = mechanicName;
         this.mechanicDNI = mechanicDNI;
         this.mechanicUniform = mechanicUniform;
+        this.mechanicHoursWorked = mechanicHoursWorked;
     }
 
     public MechanicID getMechanicID() {
@@ -34,5 +34,9 @@ public class MechanicAdded extends DomainEvent {
 
     public MechanicUniform getMechanicUniform() {
         return mechanicUniform;
+    }
+
+    public MechanicHoursWorked getMechanicHoursWorked() {
+        return mechanicHoursWorked;
     }
 }
