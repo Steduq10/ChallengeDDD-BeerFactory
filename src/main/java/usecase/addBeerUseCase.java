@@ -3,10 +3,13 @@ package usecase;
 import Packaging.Packaging;
 import Packaging.commands.AddBeer;
 import co.com.sofka.business.generic.UseCase;
+import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 
 public class addBeerUseCase extends UseCase<RequestCommand<AddBeer>, ResponseEvents> {
+
+
     @Override
     public void executeUseCase(RequestCommand<AddBeer> addBeerRequestCommand) {
         var command = addBeerRequestCommand.getCommand();
