@@ -55,24 +55,20 @@ public class Packaging extends AggregateEvent<PackagingID> {
         appendChange(new BeerAdded(entityID,beerName,beerQuantity,beerSize));
     }
 
-    public void addPacker(PackerID entityID, PackerName packerName, PackerDNI packerDNI, PackerUniform packerUniform){
+    public void addPacker(PackerID entityID, PackerName packerName, PackerDNI packerDNI, PackerUniform packerUniform, PackerHoursWorked packerHoursWorked){
         Objects.requireNonNull(entityID);
         Objects.requireNonNull(packerName);
         Objects.requireNonNull(packerDNI);
         Objects.requireNonNull(packerUniform);
-        appendChange(new PackerAdded(entityID,packerName,packerDNI,packerUniform));
+        Objects.requireNonNull(packerHoursWorked);
+        appendChange(new PackerAdded(entityID,packerName,packerDNI,packerUniform, packerHoursWorked));
     }
 
-    public void updatePackerName(PackerID entityID, PackerName packerName){
-        Objects.requireNonNull(entityID);
-        Objects.requireNonNull(packerName);
-        appendChange(new PackerNameUpdated(entityID,packerName));
-    }
 
-    public void updatePackerDNI(PackerID entityID, PackerDNI packerDNI){
+    public void updatePackerHoursWorked(PackerID entityID, PackerHoursWorked packerHoursWorked){
         Objects.requireNonNull(entityID);
-        Objects.requireNonNull(packerDNI);
-        appendChange(new PackerDNIUpdated(entityID,packerDNI));
+        Objects.requireNonNull(packerHoursWorked);
+        appendChange(new PackerHoursWorkedUpdated(entityID,packerHoursWorked));
     }
 
     public void updatePackerUniform(PackerID entityID, PackerUniform packerUniform){
@@ -81,12 +77,6 @@ public class Packaging extends AggregateEvent<PackagingID> {
         appendChange(new PackerUniformUpdated(entityID, packerUniform));
     }
 
-
-    public void updateBeerName(BeerID entityID, BeerName beerName){
-        Objects.requireNonNull(entityID);
-        Objects.requireNonNull(beerName);
-        appendChange(new BeerNameChanged(entityID,beerName));
-    }
 
     public void updateBeerQuantity(BeerID entityID, BeerQuantity beerQuantity){
         Objects.requireNonNull(entityID);

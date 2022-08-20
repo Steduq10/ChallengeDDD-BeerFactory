@@ -47,7 +47,8 @@ class AddProductionEmployeeUseCaseTest {
 
         Assertions.assertEquals(command.getProductionEmployeName().value(), event.getProductionEmployeName().value());
         Assertions.assertEquals(command.getProductionEmployeDNI().value(), event.getProductionEmployeDNI().value());
-        Assertions.assertEquals(command.getProductionEmployeDNI().value(), event.getProductionEmployeUniform().value());
+        Assertions.assertEquals(command.getProductionEmployeUniform().value(), event.getProductionEmployeUniform().value());
+        Assertions.assertEquals(command.getProductionEmployeHoursWorked().value(), event.getProductionEmployeHoursWorked().value());
         Mockito.verify(repository).getEventsBy(ROOTID);
     }
 }

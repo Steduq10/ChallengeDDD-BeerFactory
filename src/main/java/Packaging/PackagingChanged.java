@@ -28,10 +28,6 @@ public class PackagingChanged extends EventChange {
             packaging.factoryName = event.getFactoryName();
         });
 
-        apply((BeerNameChanged event)->{
-            var tool = packaging.getBeerById(event.getBeerID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the beer"));
-            tool.ChangeName(event.getBeerName());
-        });
 
         apply((BeerQuantityChanged event)->{
             var tool = packaging.getBeerById(event.getBeerID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the beer"));
@@ -52,19 +48,16 @@ public class PackagingChanged extends EventChange {
                     event.getPackerID(),
                     event.getPackerName(),
                     event.getPackerDNI(),
-                    event.getPackerUniform()
+                    event.getPackerUniform(),
+                    event.getPackerHoursWorked()
             ));
         });
 
-        apply((PackerDNIUpdated event)->{
+        apply((PackerHoursWorkedUpdated event)->{
             var packer = packaging.getProductionEmployeeById(event.getPackerID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the packer"));
-            packer.UpdateDNI(event.getPackerDNI());
+            packer.UpdateHoursWorked(event.getPackerHoursWorked());
         });
 
-        apply((PackerNameUpdated event)->{
-            var packer = packaging.getProductionEmployeeById(event.getPackerID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the packer"));
-            packer.UpdateName(event.getPackerName());
-        });
 
         apply((PackerUniformUpdated event)->{
             var packer = packaging.getProductionEmployeeById(event.getPackerID()).orElseThrow(()-> new IllegalArgumentException("Invalid ID to reach the packer"));

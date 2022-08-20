@@ -3,16 +3,16 @@ package Packaging.commands;
 import Packaging.values.*;
 import co.com.sofka.domain.generic.Command;
 
-public class UpdatePackerDNI extends Command {
+public class UpdatePackerHoursWorked extends Command {
 
     private final PackagingID packagingID;
     private final PackerID packerID;
-    private final PackerDNI packerDNI;
+    private final PackerHoursWorked packerHoursWorked;
 
-    public UpdatePackerDNI(PackagingID packagingID, PackerID packerID, PackerDNI packerDNI) {
+    public UpdatePackerHoursWorked(PackagingID packagingID, PackerID packerID, PackerHoursWorked packerHoursWorked) {
         this.packagingID = packagingID;
         this.packerID = packerID;
-        this.packerDNI = packerDNI;
+        this.packerHoursWorked = packerHoursWorked;
     }
 
     public PackagingID getPackagingID() {
@@ -23,7 +23,7 @@ public class UpdatePackerDNI extends Command {
         return packerID;
     }
 
-    public PackerDNI getPackerDNI() {
-        return packerDNI;
+    public PackerHoursWorked getPackerHoursWorked() {
+        return packerHoursWorked;
     }
 }

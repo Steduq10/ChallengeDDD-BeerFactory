@@ -28,7 +28,7 @@ class addPackerUseCaseTest {
 
     @Test
     public void addPackerUseCaseTest(){
-        var command = new AddPacker(PackagingID.of(ROOTID), PackerID.of("23er45"), new PackerName("Paula Rodriguez"),new PackerDNI("497426985"), new PackerUniform("yellow with security"));
+        var command = new AddPacker(PackagingID.of(ROOTID), PackerID.of("23er45"), new PackerName("Paula Rodriguez"),new PackerDNI("497426985"), new PackerUniform("yellow with security"), new PackerHoursWorked("11"));
         var useCase = new addPackerUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(
@@ -50,6 +50,7 @@ class addPackerUseCaseTest {
         Assertions.assertEquals(command.getPackerName().value(), event.getPackerName().value());
         Assertions.assertEquals(command.getPackerDNI().value(), event.getPackerDNI().value());
         Assertions.assertEquals(command.getPackerUniform().value(), event.getPackerUniform().value());
+        Assertions.assertEquals(command.getPackerHoursWorked().value(), event.getPackerHoursWorked().value());
         Mockito.verify(repository).getEventsBy(ROOTID);
     }
 }

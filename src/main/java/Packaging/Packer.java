@@ -1,10 +1,7 @@
 package Packaging;
 
 
-import Packaging.values.PackerDNI;
-import Packaging.values.PackerID;
-import Packaging.values.PackerName;
-import Packaging.values.PackerUniform;
+import Packaging.values.*;
 import co.com.sofka.domain.generic.Entity;
 
 import java.util.Objects;
@@ -14,19 +11,20 @@ public class Packer extends Entity <PackerID> {
     private PackerDNI packerDNI;
     private PackerUniform packerUniform;
 
-    public Packer(PackerID entityId, PackerName packerName, PackerDNI packerDNI, PackerUniform packerUniform) {
+    private PackerHoursWorked packerHoursWorked;
+
+    public Packer(PackerID entityId, PackerName packerName, PackerDNI packerDNI, PackerUniform packerUniform, PackerHoursWorked packerHoursWorked) {
         super(entityId);
         this.packerName = packerName;
         this.packerDNI = packerDNI;
         this.packerUniform = packerUniform;
+        this.packerHoursWorked = packerHoursWorked;
     }
 
-    public void UpdateName(PackerName packerName){
-        this.packerName = Objects.requireNonNull(packerName);
-    }
 
-    public void UpdateDNI(PackerDNI packerDNI){
-        this.packerDNI = Objects.requireNonNull(packerDNI);
+
+    public void UpdateHoursWorked(PackerHoursWorked packerHoursWorked){
+        this.packerHoursWorked = Objects.requireNonNull(packerHoursWorked);
     }
 
     public void UpdateUniform(PackerUniform packerUniform){
@@ -43,5 +41,9 @@ public class Packer extends Entity <PackerID> {
 
     public PackerUniform packerUniform() {
         return packerUniform;
+    }
+
+    public PackerHoursWorked packerHoursWorked() {
+        return packerHoursWorked;
     }
 }

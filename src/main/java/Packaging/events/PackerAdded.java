@@ -1,9 +1,6 @@
 package Packaging.events;
 
-import Packaging.values.PackerDNI;
-import Packaging.values.PackerID;
-import Packaging.values.PackerName;
-import Packaging.values.PackerUniform;
+import Packaging.values.*;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class PackerAdded extends DomainEvent {
@@ -13,14 +10,16 @@ public class PackerAdded extends DomainEvent {
     private final PackerDNI packerDNI;
     private final PackerUniform packerUniform;
 
-    public PackerAdded( PackerID packerID, PackerName packerName, PackerDNI packerDNI, PackerUniform packerUniform) {
+    private final PackerHoursWorked packerHoursWorked;
+
+    public PackerAdded( PackerID packerID, PackerName packerName, PackerDNI packerDNI, PackerUniform packerUniform, PackerHoursWorked packerHoursWorked) {
         super("DDD.Packaging.PackerAdded");
         this.packerID = packerID;
         this.packerName = packerName;
         this.packerDNI = packerDNI;
         this.packerUniform = packerUniform;
+        this.packerHoursWorked = packerHoursWorked;
     }
-
     public PackerID getPackerID() {
         return packerID;
     }
@@ -35,5 +34,9 @@ public class PackerAdded extends DomainEvent {
 
     public PackerUniform getPackerUniform() {
         return packerUniform;
+    }
+
+    public PackerHoursWorked getPackerHoursWorked() {
+        return packerHoursWorked;
     }
 }

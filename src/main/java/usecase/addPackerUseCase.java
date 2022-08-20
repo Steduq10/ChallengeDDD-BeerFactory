@@ -15,7 +15,8 @@ public class addPackerUseCase extends UseCase<RequestCommand<AddPacker>, Respons
                 command.getPackerID(),
                 command.getPackerName(),
                 command.getPackerDNI(),
-                command.getPackerUniform()
+                command.getPackerUniform(),
+                command.getPackerHoursWorked()
         );
 
         emit().onResponse(new ResponseEvents(packaging.getUncommittedChanges()));
