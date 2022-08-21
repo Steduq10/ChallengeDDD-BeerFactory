@@ -7,7 +7,7 @@ import Production.values.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,14 +20,14 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 class AddCommodityUseCaseTest {
 
-    private final String ROOTID = "145tr67";
+    private final String ROOTID = "54321";
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
     public void addCommodityUseCaseTest(){
-        var command = new AddCommodity(ProductionID.of(ROOTID), CommodityID.of("23er45"), new CommodityName("barley"),new CommodityQuantity("800"), new CommodityPrice("1000"));
+        var command = new AddCommodity(ProductionID.of(ROOTID), CommodityID.of("12345"), new CommodityName("barley"),new CommodityQuantity("800"), new CommodityPrice("1000"));
         var useCase = new AddCommodityUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(

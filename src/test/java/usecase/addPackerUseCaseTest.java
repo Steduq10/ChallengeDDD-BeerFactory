@@ -8,7 +8,7 @@ import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,14 +21,14 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 class addPackerUseCaseTest {
 
-    private final String ROOTID = "145tr67";
+    private final String ROOTID = "54321";
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
     public void addPackerUseCaseTest(){
-        var command = new AddPacker(PackagingID.of(ROOTID), PackerID.of("23er45"), new PackerName("Paula Rodriguez"),new PackerDNI("497426985"), new PackerUniform("yellow with security"), new PackerHoursWorked("11"));
+        var command = new AddPacker(PackagingID.of(ROOTID), PackerID.of("12345"), new PackerName("Paula Rodriguez"),new PackerDNI("497426985"), new PackerUniform("yellow with security"), new PackerHoursWorked("11"));
         var useCase = new addPackerUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(

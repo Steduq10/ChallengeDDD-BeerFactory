@@ -8,7 +8,7 @@ import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,14 +21,14 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 class AddMechanicUseCaseTest {
 
-    private final String ROOTID = "145tr67";
+    private final String ROOTID = "54321";
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
     public void addMechanicUseCaseTest(){
-        var command = new AddMechanic(MaintenainceID.of(ROOTID), MechanicID.of("23er45"), new MechanicName("Nelson Jimenez"),new MechanicDNI("71325674"), new MechanicUniform("white with security"), new MechanicHoursWorked("10"));
+        var command = new AddMechanic(MaintenainceID.of(ROOTID), MechanicID.of("12345"), new MechanicName("Nelson Jimenez"),new MechanicDNI("71325674"), new MechanicUniform("white with security"), new MechanicHoursWorked("10"));
         var useCase = new AddMechanicUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(

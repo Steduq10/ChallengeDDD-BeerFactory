@@ -12,8 +12,8 @@ public class MechanicDNI implements ValueObject<String> {
         if(this.value.isBlank()){
             throw new IllegalArgumentException("The VO Mechanic DNI can't be blank");
         }
-        if(this.value.length() < 0){
-            throw new IllegalArgumentException("The VO Mechanic DNI can't have less than 0 characters");
+        if(this.value.length() < 7){
+            throw new IllegalArgumentException("The VO Mechanic DNI can't have less than 7 characters");
         }
     }
 

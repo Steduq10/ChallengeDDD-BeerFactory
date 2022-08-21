@@ -2,7 +2,7 @@ package Maintenance;
 
 import Maintenance.events.*;
 
-import Production.generics.event.FactoryNameUpdated;
+import generics.events.FactoryNameUpdated;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;

@@ -5,8 +5,8 @@ import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.TriggeredEvent;
-import Production.generics.FactoryName;
-import Production.generics.event.NotificationSent;
+import generics.FactoryName;
+import generics.events.NotificationSent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 class NotifyPackersUseCaseTest {
-    private final String ROOTID = "145tr67";
+    private final String ROOTID = "54321";
 
     @Mock
     private DomainEventRepository repository;

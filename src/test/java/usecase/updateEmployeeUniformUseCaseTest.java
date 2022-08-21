@@ -4,7 +4,7 @@ import Production.commands.UpdateEmployeUniform;
 import Production.events.EmployUniformUpdated;
 import Production.events.ProductionCreated;
 import Production.events.ProductionEmployeAdded;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 import Production.values.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -22,21 +22,21 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 class updateEmployeeUniformUseCaseTest {
 
-    private final String ROOTID = "145tr67";
+    private final String ROOTID = "54321";
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
     void updateEmployeeUniform(){
-        var command = new UpdateEmployeUniform(ProductionID.of(ROOTID), ProductionEmployeID.of("23er45"), new ProductionEmployeUniform("Green Security uniform"));
+        var command = new UpdateEmployeUniform(ProductionID.of(ROOTID), ProductionEmployeID.of("12345"), new ProductionEmployeUniform("Green Security uniform"));
         var useCase = new updateEmployeeUniformUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(
                 new ProductionCreated(
                         new FactoryName("Aguila")
                 ),
-                new ProductionEmployeAdded(ProductionEmployeID.of("23er45"),
+                new ProductionEmployeAdded(ProductionEmployeID.of("12345"),
                         new ProductionEmployeName("Pablo"),
                         new ProductionEmployeDNI("4274569514"),
                         new ProductionEmployeUniform("White uniform without security"),

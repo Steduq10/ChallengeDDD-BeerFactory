@@ -10,10 +10,10 @@ public class MechanicUniform implements ValueObject<String> {
     public MechanicUniform(String value) {
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException("The VO Mechanic DNI can't be blank");
+            throw new IllegalArgumentException("The VO Mechanic Uniform can't be blank");
         }
-        if(this.value.length() < 0){
-            throw new IllegalArgumentException("The VO Mechanic DNI can't have less than 0 characters");
+        if(this.value.length() < 3){
+            throw new IllegalArgumentException("The VO Mechanic Uniform can't have less than 3 characters");
         }
     }
 

@@ -3,7 +3,7 @@ package usecase;
 import Packaging.commands.CreatePackaging;
 import Packaging.events.PackagingCreated;
 import Packaging.values.PackagingID;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;

@@ -1,7 +1,7 @@
-package Production.generics.event;
+package generics.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 
 public class FactoryNameUpdated extends DomainEvent {
     private final FactoryName factoryName;

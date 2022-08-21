@@ -13,8 +13,8 @@ public class PackerDNI implements ValueObject<String> {
         if(this.value.isBlank()){
             throw new IllegalArgumentException("The VO Packer DNI can't be blank");
         }
-        if(this.value.length() < 3){
-            throw new IllegalArgumentException("The VO Packer DNI can't be less than 3 letters");
+        if(this.value.length() < 7){
+            throw new IllegalArgumentException("The VO Packer DNI can't be less than 7 characters");
         }
     }
 

@@ -4,7 +4,7 @@ import Packaging.commands.AddBeer;
 import Packaging.events.BeerAdded;
 import Packaging.events.PackagingCreated;
 import Packaging.values.*;
-import Production.generics.FactoryName;
+import generics.FactoryName;
 import Production.values.ProductionID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -21,7 +21,7 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 class addBeerUseCaseTest {
 
-    private final String ROOTID = "145tr67";
+    private final String ROOTID = "54321";
 
     @Mock
     private DomainEventRepository repository;
@@ -29,7 +29,7 @@ class addBeerUseCaseTest {
     @Test
     public void addBeerUseCaseTest(){
         //AddBeer command = new AddBeer(new PackagingID(), new BeerID(), new BeerName("Club Colombia Dorada"), new BeerQuantity("1500"),new BeerSize("300 ml"));
-        var command = new AddBeer(PackagingID.of(ROOTID), BeerID.of("23er45"), new BeerName("Club Colombia Dorada"),new BeerQuantity("1500"), new BeerSize("300 ml"));
+        var command = new AddBeer(PackagingID.of(ROOTID), BeerID.of("12345"), new BeerName("Club Colombia Dorada"),new BeerQuantity("1500"), new BeerSize("300 ml"));
         var useCase = new addBeerUseCase();
 
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(

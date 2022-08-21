@@ -13,8 +13,8 @@ public class BeerSize implements ValueObject<String> {
         if(this.value.isBlank()){
             throw new IllegalArgumentException("The VO Beer Size can't be blank");
         }
-        if(this.value.length() < 3){
-            throw new IllegalArgumentException("The VO Beer Size can't be less than 3 letters");
+        if(this.value.length() < 0){
+            throw new IllegalArgumentException("The VO Beer Size can't be less than 0 ml");
         }
     }
 

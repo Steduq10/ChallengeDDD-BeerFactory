@@ -1,4 +1,4 @@
-package Production.generics;
+package generics;
 
 import co.com.sofka.domain.generic.ValueObject;
 
